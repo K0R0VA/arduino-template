@@ -1,0 +1,5 @@
+[wokwi]
+version = 1
+elf = "target/avr-none/release/arduino-template.elf"
+firmware = "target/avr-none/release/arduino-template.d"
+gdbServerPort=3333
