@@ -5,6 +5,10 @@ authors = ["mic <mic>"]
 edition = "2021"
 license = "MIT OR Apache-2.0"
 
+[dependencies.avr-device]
+version = "0.8.1"
+features = ["atmega328p"]
+
 [[bin]]
 name = "arduino-template"
 test = false
@@ -15,7 +19,6 @@ panic-halt = "1.0.0"
 ufmt = "0.2.0"
 nb = "1.1.0"
 embedded-hal = "1.0"
-avr-device = "0.8.1"
 
 [dependencies.arduino-hal]
 git = "https://github.com/rahix/avr-hal"

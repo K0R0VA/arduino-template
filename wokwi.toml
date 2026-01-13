@@ -1,5 +1,5 @@
 [wokwi]
 version = 1
-elf = "target/avr-none/release/arduino-template.elf"
-firmware = "target/avr-none/release/arduino-template.d"
+elf = "output.hex"
+firmware = "output.hex"
 gdbServerPort=3333

@@ -3,17 +3,14 @@
 
 use panic_halt as _;
 
-use crate::console::init_console;
-
 #[arduino_hal::entry]
 fn main() -> ! {
     let dp = arduino_hal::Peripherals::take().unwrap();
     let pins = arduino_hal::pins!(dp);
-    init_console(dp.USART0, pins.d0, pins.d1.into_output());
     let mut led = pins.d9.into_output_high();
     loop {
-        println!("hello");
-        led.toggle().then_delay(100);
+        led.toggle();
+        arduino_hal::delay_ms(500);
     }
 }
 
@@ -25,6 +22,7 @@ pub trait Delay {
 
 impl Delay for () {}
 
+#[allow(unused)]
 mod console {
     use arduino_hal::{hal::port::{PD0, PD1}, pac::usart0::RegisterBlock, port::{Pin, mode::{Floating, Input, Output}}};
     use avr_device::{generic::Periph, interrupt};
